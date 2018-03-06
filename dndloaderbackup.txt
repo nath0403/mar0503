@@ -1,0 +1,15 @@
+LOAD DATA
+APPEND
+INTO TABLE CALL_BLOCK_FILE_DTLS
+append
+fields terminated by ',' optionally enclosed by '"' trailing NULLCOLS
+(
+FILED1 FILLER,
+DEL_NO,
+FILED3 FILLER,
+MDN_STATUS "case when :MDN_STATUS = 'A' then 'New'
+                 when :MDN_STATUS = 'D' then 'Delete'
+            end",
+FILED5 FILLER,
+INSERTED_DATE sysdate
+)
